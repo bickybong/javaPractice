@@ -1,22 +1,33 @@
 public class Motorbike {
 
   public static void main(String[] args) {
-    Motorbike ducati = new Motorbike();
-    Motorbike honda = new Motorbike();
+    Motorbike ducati = new Motorbike(100);
+    Motorbike honda = new Motorbike(200);
+    Motorbike bukati = new Motorbike();
+    System.out.println(ducati.getSpeed());
+    System.out.println(honda.getSpeed());
+    System.out.println(bukati.getSpeed());
+
     ducati.start();
     honda.start();
 
-    ducati.setSpeed(100);
-
     ducati.decreaseSpeed(50);
-    honda.increaseSpeed(100);
-
     System.out.println(ducati.getSpeed());
-    System.out.println(honda.getSpeed());
+    // honda.increaseSpeed(100);
+    // System.out.println(honda.getSpeed());
   }
 
   // state
   private int speed;
+
+  // constructor
+  Motorbike() { //default constructor for no arg input
+    this(5);
+  }
+
+  Motorbike(int speed) {
+    this.speed = speed;
+  }
 
   // methods
   public int getSpeed() {
@@ -30,11 +41,11 @@ public class Motorbike {
   }
 
   public void increaseSpeed(int add) {
-    this.speed += add;
+    setSpeed(this.speed + add);
   }
 
   public void decreaseSpeed(int minus) {
-    this.speed -= minus;
+    setSpeed(this.speed - minus);
   }
 
   void start() {
