@@ -5,7 +5,7 @@ public class DoWhile {
   public static void main(String[] args) {
     Scanner scanner = new Scanner(System.in);
     int num = 0;
-    do {
+    do { //runs even if the first time doesnt pass while condition
       if (num >= 0) {
         System.out.println("Cube is " + (num * num * num));
       }
