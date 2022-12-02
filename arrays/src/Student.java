@@ -9,9 +9,9 @@ public class Student {
   private static ArrayList<Integer> marks = new ArrayList<Integer>();
 
   public Student(String name, int... marks) {
-    this.name = name;
+    Student.name = name;
     for (int mark : marks) {
-      this.marks.add(mark);
+      Student.marks.add(mark);
     }
   }
 
@@ -38,7 +38,6 @@ public class Student {
     stu1.addNewMark(43);
     stu1.removeMark(2);
     System.out.println(stu1);
-    System.out.println(stu2);
   }
 
   private void removeMark(int i) {

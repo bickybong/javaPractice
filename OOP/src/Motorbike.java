@@ -18,7 +18,7 @@ public class Motorbike {
   }
 
   // state
-  private int speed;
+  private int speed; //member variable
 
   // constructor
   Motorbike() { //default constructor for no arg input
