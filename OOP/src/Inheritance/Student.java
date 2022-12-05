@@ -5,12 +5,14 @@ public class Student extends Person {
   private String collegeName;
   private int year;
 
-  public static void main(String[] args) {
-    Student student = new Student();
-    student.setName("Ranga");
+  public Student(String name) {
+    super(name);
+  }
 
-    Person per1 = new Person();
-    per1.setName("ggs");
+  public static void main(String[] args) {
+    Student student = new Student("Ranga");
+
+    Person per1 = new Person("ggs");
     per1.setEmail("gg@gmail.com");
     per1.setPhoneNumber(754743783);
     System.out.println(per1);
