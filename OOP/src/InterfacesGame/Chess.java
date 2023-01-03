@@ -3,11 +3,13 @@ package InterfacesGame;
 public class Chess implements GamingConsole {
 
   public static void main(String[] args) {
-    Chess game = new Chess();
-    game.up();
-    game.down();
-    game.right();
-    game.left();
+    GamingConsole[] games = { new Mario(), new Chess() };
+    for (GamingConsole game : games) {
+      game.up();
+      game.down();
+      game.right();
+      game.left();
+    }
   }
 
   @Override
