@@ -1,11 +1,19 @@
+import java.util.Comparator;
 import java.util.List;
 import java.util.Locale;
+import java.util.function.Predicate;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
 public class FPnums {
     public static void main(String[] args) {
         List<Integer> nums = List.of(2, 5, 9, 3, 4, 26, 3, 9);
+
+        Integer max = nums.stream()
+                .filter(getIntegerPredicate())
+                .max(Integer::compare)
+                .orElse(0);
+        System.out.println(max);
 
 //        sumFPodd(nums);
 //        sumNums(nums);
@@ -17,6 +25,14 @@ public class FPnums {
 //        minNum(nums);
 //        newOddList(nums);
 //        squaredList(nums);
+    }
+
+    private static Comparator<Integer> getIntegerComparator() {
+        return (n1, n2) -> Integer.compare(n1, n2);
+    }
+
+    private static Predicate<Integer> getIntegerPredicate() {
+        return n -> n % 2 == 0;
     }
 
     private static void squaredList(List<Integer> nums) {
@@ -35,12 +51,12 @@ public class FPnums {
 
     private static void maxNum(List<Integer> nums) {
         int max = nums.stream()
-                .max((n1, n2) -> Integer.compare(n1, n2))
+                .max(getIntegerComparator())
                 .get();
         System.out.println(max);
     }private static void minNum(List<Integer> nums) {
         int min = nums.stream()
-                .min((n1, n2) -> Integer.compare(n1, n2))
+                .min(getIntegerComparator())
                 .get();
         System.out.println(min);
     }
